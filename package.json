@@ -1,0 +1,14 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "watch": "node ./watch/index.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
+}
