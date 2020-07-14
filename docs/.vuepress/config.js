@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/',
+  base: '/blog/',
   cache: true,
   title: 'blueprint的博客',
   description: '专注于前端技术栈',
