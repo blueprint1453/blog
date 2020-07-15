@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/blog/',
+  base: '/myblog/',
   cache: true,
   title: 'blueprint的博客',
   description: '专注于前端技术栈',
@@ -23,14 +23,14 @@ module.exports = {
       collapsable: false,
       '/web/': ['', 'js-basics', 'api-polyfill', 'browser', 'css', 'js-lib'],
       // fallback
-      '/': [
-        '',        /* / */
-        'nodejs', /* /contact.html */
-        'algorithm',    /* /about.html */
-        'database',
-        'tools',
-        'interview',
-      ]
+      // '/': [
+      //   '',        /* / */
+      //   'nodejs', /* /contact.html */
+      //   'algorithm',    /* /about.html */
+      //   'database',
+      //   'tools',
+      //   'interview',
+      // ]
     }
   },
 }
