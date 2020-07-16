@@ -1,5 +1,5 @@
 const mode = process.env.NODE_ENV
-let base = mode === 'development' ? '/' : '/blog'
+let base = mode === 'development' ? '/' : '/blog/'
 module.exports = {
   base: base,
   cache: true,
