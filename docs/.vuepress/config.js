@@ -1,5 +1,7 @@
+const mode = process.env.NODE_ENV
+let base = mode === 'development' ? '/' : '/blog'
 module.exports = {
-  base: '/myblog/',
+  base: base,
   cache: true,
   title: 'blueprint的博客',
   description: '专注于前端技术栈',
