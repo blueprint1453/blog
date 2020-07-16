@@ -20,7 +20,6 @@ jobs:
           sudo npm install vuepress -g
           npm install
           npm run build
-          git switch -
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.7
         with:
