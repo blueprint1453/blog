@@ -19,7 +19,7 @@ jobs:
 #           rm -rf docs/.vuepress/dist
           sudo npm install vuepress -g
           npm install
-          npm run build
+          vuepress build docs
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.7
         with:
