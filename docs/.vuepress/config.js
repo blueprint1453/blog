@@ -23,7 +23,7 @@ module.exports = {
     prevLinks: false,
     sidebar: {
       collapsable: false,
-      '/web/': ['', 'js-basics', 'api-polyfill', 'browser', 'css', 'js-lib'],
+      '/web/': ['', 'js-basics', 'api-polyfill','promise', 'browser', 'css', 'js-lib'],
       // fallback
       // '/': [
       //   '',        /* / */

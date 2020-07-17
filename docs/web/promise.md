@@ -426,7 +426,7 @@ let p5 = new MyPromise((resolve, reject) => {
   );
 ```
 
-## 构造函数和简单版的 then 方法
+## 04-Promise类方法和实例方法的实现
 
 ```javascript
 (MyPromise.prototype.catch = function(onRejected) {
