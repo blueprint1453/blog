@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://blueprint1453.github.io/blog",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
