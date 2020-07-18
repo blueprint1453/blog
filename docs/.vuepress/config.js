@@ -36,9 +36,10 @@ module.exports = {
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
     repoLabel: '查看源码',
+    docsDir: 'docs',
     editLinks: true,
-    editLinkText: '帮助我们改善此页面！',
-    lastUpdated: 'Last Updated',
+    editLinkText: '在 GitHub 上编辑此页',
+    lastUpdated: '上次更新',
      
     sidebar: {
       collapsable: true,
