@@ -12,5 +12,8 @@
   },
   "dependencies": {
     "shelljs": "^0.8.4"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.5.2"
   }
 }

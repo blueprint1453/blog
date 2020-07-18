@@ -3,7 +3,7 @@ let base = mode === 'development' ? '/' : '/blog/'
 
 // 头部导航
 const headNav = [
-  { text: "主页", link: "/" },
+  // { text: "主页", link: "/" },
   {
     text: "前端",
     items: [
@@ -35,7 +35,7 @@ module.exports = {
     repo: 'blueprint1453/blog',
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
-    repoLabel: '查看源码',
+    repoLabel: 'GitHub',
     docsDir: 'docs',
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
@@ -50,4 +50,5 @@ module.exports = {
       '/js-lib/': ['vue', 'react']
     }
   },
+  plugins: ['@vuepress/back-to-top']
 }
