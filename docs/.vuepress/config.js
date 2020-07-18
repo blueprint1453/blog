@@ -1,38 +1,52 @@
 const mode = process.env.NODE_ENV
 let base = mode === 'development' ? '/' : '/blog/'
+
+// 头部导航
+const headNav = [
+  { text: "主页", link: "/" },
+  {
+    text: "前端",
+    items: [
+      { text: 'js笔记', link: '/javascript/'},
+      { text: 'html和浏览器', link: '/html/' },
+      { text: 'css笔记', link: '/css/' },
+      { text: '正则', link: '/regexp/' },
+      { text: 'js框架和库', link: '/js-lib/' },
+    ]
+  },
+  { text: "算法", link: "/algorithm/" },
+  { text: "nodejs", link: "/nodejs/" },
+  { text: "数据库", link: "/database/" },
+  { text: "面试问题", link: "/interview/" },
+  // { text: "GitHub", link: "https://github.com/blueprint1453/blog" },
+];
+
 module.exports = {
   base: base,
   cache: true,
   title: 'blueprint的博客',
   description: '专注于前端技术栈',
   themeConfig: {
-    nav: [{ text: "主页", link: "/" },
-    { text: "前端", link: "/web/" },
-    { text: "算法", link: "/algorithm/" },
-    { text: "nodejs", link: "/nodejs/" },
-    { text: "数据库", link: "/database/" },
-    // { text: "开发工具", link: "/tools/" },
-    { text: "面试问题", link: "/interview/" },
-
-    ],
-    // sidebar: 'auto',
+    nav: headNav,
     sidebarDepth: 2,
-    // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
     nextLinks: false,
-    // 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
     prevLinks: false,
+    smoothScroll: true,
+    repo: 'blueprint1453/blog',
+    // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
+    // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
+    repoLabel: '查看源码',
+    editLinks: true,
+    editLinkText: '帮助我们改善此页面！',
+    lastUpdated: 'Last Updated',
+     
     sidebar: {
-      collapsable: false,
-      '/web/': ['', 'js-basics', 'api-polyfill','promise', 'browser', 'css', 'js-lib'],
-      // fallback
-      // '/': [
-      //   '',        /* / */
-      //   'nodejs', /* /contact.html */
-      //   'algorithm',    /* /about.html */
-      //   'database',
-      //   'tools',
-      //   'interview',
-      // ]
+      collapsable: true,
+      '/javascript/': ['', 'js-basics', 'api-polyfill', 'promise'],
+      '/html/': [''],
+      '/css/': [''],
+      '/regexp/': [''],
+      '/js-lib/': ['vue', 'react']
     }
   },
 }

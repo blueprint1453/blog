@@ -7,6 +7,8 @@
 
 - [js及浏览器相关的api的实现](./api-polyfill.html)
 
+- [promise 的实现](./promise.html)
+
 - [浏览器相关](./browser.html)
 
 - [css相关](./css.html)
