@@ -90,7 +90,7 @@ p2.then(
 );
 ```
 
-## 03-继续完善 then 方法以及增加 resolvePromise 方法
+## 02-继续完善 then 方法
 
 ```javascript
 const PENDING = "pending";
@@ -194,57 +194,12 @@ p2.then(
 );
 ```
 
-## 构造函数和简单版的 then 方法
+## 3- then 方法进一步完善并增加 resolvePromise 方法
 
 ```javascript
-const PENDING = "pending";
-const FULLFILLED = "fulfilled";
-const REJECTED = "rejected";
-
-function MyPromise(executor) {
-  this.status = PENDING;
-  this.value = undefined;
-  this.reason = undefined;
-  this.onFulfilledCallbacks = [];
-  this.onRejectedCallbacks = [];
-
-  const that = this;
-  const resolve = function(value) {
-    that.status = FULLFILLED;
-    that.value = value;
-    that.onFulfilledCallbacks.forEach(fn => {
-      fn(value);
-    });
-  };
-
-  const reject = function(reason) {
-    that.status = REJECTED;
-    that.reason = reason;
-    that.onRejectedCallbacks.forEach(fn => {
-      fn(reason);
-    });
-  };
-  try {
-    executor(resolve, reject);
-  } catch (error) {
-    reject(error);
-  }
-}
-
 MyPromise.prototype = {
   then(onFulfilled, onRejected) {
     const that = this;
-    // if (typeof onFulfilled !== 'function') {
-    //   onFulfilled = function () {
-    //     return that.value
-    //   }
-    // }
-    // if (typeof onRejected !== 'function') {
-    //   onRejected = function () {
-    //     throw that.value
-    //   }
-    // }
-
     if (that.status === PENDING) {
       let p2 = new MyPromise(function(resolve, reject) {
         that.onFulfilledCallbacks.push(function() {

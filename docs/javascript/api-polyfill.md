@@ -256,6 +256,48 @@ function count() {
 content.onmousemove = throttle(count, 400)
 ```
 
+## 实现一个事件订阅器
+```javascript
+  class EventEmiter{
+    constructor() {
+      this.eventMap = {}
+    }
+    on(name, handler) {
+      if (typeof handler !== 'function') {
+        throw new Error('handler should a function')
+      }
+      if (!this.eventMap[name]) {
+        this.eventMap[name] = []
+      }
+      this.eventMap[name].push(handler)
+    }
+    once(name, handler) {
+      let that = this
+      let onceFn = function() {
+        onceFn.apply(that, arguments)
+        that.off(name, onceFn)
+      }
+      this.on(name, handler.bind(this))
+    }
+    emit(name, ...params) {
+      let handlers = this.eventMap[name] || []
+      for (let handler of handlers) {
+        handler.call(this, ...params)
+      }
+    }
+    off(name, fn) {
+      if (this.eventMap[name]) {
+        if (!fn) {
+          this.eventMap[name] = null
+        } else {
+          let index = this.eventMap[name].indexOf(fn);
+          index > -1 && this.eventMap[name].splice(index, 1)
+        }   
+      }
+    }
+  }
+```
+
 ## ajax封装
 ```javascript
 function ajax(options) {
@@ -282,8 +324,6 @@ function ajax(options) {
     } 
   }
 
-  xhr.error
-
   if (type === 'GET') {
     url += `?${serializeData(params)}`
     xhr.open(type, options.url)
@@ -298,6 +338,8 @@ function ajax(options) {
 }
 
 ['get', 'post'].forEach(function(type) {
+  options = options || {}
+  options.type = type
   ajax[type] = function(options) {
     ajax(options)
   }

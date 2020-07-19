@@ -44,7 +44,7 @@ module.exports = {
     sidebar: {
       collapsable: true,
       '/javascript/': ['', 'js-basics', 'api-polyfill', 'promise'],
-      '/html/': [''],
+      '/html/': ['basis', 'http-status', 'performance'],
       '/css/': [''],
       '/regexp/': [''],
       '/js-lib/': ['vue', 'react']
