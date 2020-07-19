@@ -44,11 +44,18 @@ module.exports = {
     sidebar: {
       collapsable: true,
       '/javascript/': ['', 'js-basics', 'api-polyfill', 'promise'],
-      '/html/': ['basis', 'http-status', 'performance'],
+      '/html/': ['', 'basis', 'http-status', 'performance', 'dom-event'],
       '/css/': [''],
       '/regexp/': [''],
       '/js-lib/': ['vue', 'react']
     }
   },
-  plugins: ['@vuepress/back-to-top']
+  plugins: [
+      '@vuepress/back-to-top',
+      '@vuepress-reco/extract-code',
+      '@vuepress/register-components',
+        {
+          componentsDir: 'components'
+        }
+    ]
 }
