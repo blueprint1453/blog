@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>定位元素 | blueprint的博客</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="专注于前端技术栈">
+    <link rel="preload" href="/blog/assets/css/0.styles.f110ca6d.css" as="style"><link rel="preload" href="/blog/assets/js/app.cddfd884.js" as="script"><link rel="preload" href="/blog/assets/js/2.80c34ca0.js" as="script"><link rel="preload" href="/blog/assets/js/9.fa4e56d5.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.18db12a0.js"><link rel="prefetch" href="/blog/assets/js/11.a1ae2698.js"><link rel="prefetch" href="/blog/assets/js/12.ae4671f9.js"><link rel="prefetch" href="/blog/assets/js/13.c6e475a3.js"><link rel="prefetch" href="/blog/assets/js/14.4c8c3607.js"><link rel="prefetch" href="/blog/assets/js/15.50bcb889.js"><link rel="prefetch" href="/blog/assets/js/16.19c8a4e8.js"><link rel="prefetch" href="/blog/assets/js/17.5eadcb58.js"><link rel="prefetch" href="/blog/assets/js/18.ea440c6d.js"><link rel="prefetch" href="/blog/assets/js/19.a33f0ec9.js"><link rel="prefetch" href="/blog/assets/js/20.3f7609d2.js"><link rel="prefetch" href="/blog/assets/js/21.7b35987a.js"><link rel="prefetch" href="/blog/assets/js/22.76aa55ec.js"><link rel="prefetch" href="/blog/assets/js/23.57a9857b.js"><link rel="prefetch" href="/blog/assets/js/24.26aa4951.js"><link rel="prefetch" href="/blog/assets/js/25.fa4debc7.js"><link rel="prefetch" href="/blog/assets/js/26.fe14a57c.js"><link rel="prefetch" href="/blog/assets/js/3.bdc5ffac.js"><link rel="prefetch" href="/blog/assets/js/4.7b6b3f6f.js"><link rel="prefetch" href="/blog/assets/js/5.d18f02cc.js"><link rel="prefetch" href="/blog/assets/js/6.1d669547.js"><link rel="prefetch" href="/blog/assets/js/7.f7d91602.js"><link rel="prefetch" href="/blog/assets/js/8.907f238d.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.f110ca6d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">blueprint的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/javascript/" class="nav-link">
+  js笔记
+</a></li><li class="dropdown-item"><!----> <a href="/blog/html/" class="nav-link">
+  html和浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/css/" class="nav-link router-link-active">
+  css笔记
+</a></li><li class="dropdown-item"><!----> <a href="/blog/regexp/" class="nav-link">
+  正则
+</a></li><li class="dropdown-item"><!----> <a href="/blog/js-lib/" class="nav-link">
+  js框架和库
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/nodejs/" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/blog/database/" class="nav-link">
+  数据库
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试问题
+</a></div> <a href="https://github.com/blueprint1453/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/javascript/" class="nav-link">
+  js笔记
+</a></li><li class="dropdown-item"><!----> <a href="/blog/html/" class="nav-link">
+  html和浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/css/" class="nav-link router-link-active">
+  css笔记
+</a></li><li class="dropdown-item"><!----> <a href="/blog/regexp/" class="nav-link">
+  正则
+</a></li><li class="dropdown-item"><!----> <a href="/blog/js-lib/" class="nav-link">
+  js框架和库
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/nodejs/" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/blog/database/" class="nav-link">
+  数据库
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试问题
+</a></div> <a href="https://github.com/blueprint1453/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/blog/css/" aria-current="page" class="sidebar-link">主题</a></li><li><a href="/blog/css/css-selector.html" class="sidebar-link">css选择器汇总</a></li><li><a href="/blog/css/css-theory.html" class="sidebar-link">css基础理论</a></li><li><a href="/blog/css/position.html" aria-current="page" class="active sidebar-link">定位元素</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/css/position.html#相对定位" class="sidebar-link">相对定位</a></li><li class="sidebar-sub-header"><a href="/blog/css/position.html#绝对定位" class="sidebar-link">绝对定位</a></li><li class="sidebar-sub-header"><a href="/blog/css/position.html#固定定位" class="sidebar-link">固定定位</a></li><li class="sidebar-sub-header"><a href="/blog/css/position.html#粘性定位（sticky" class="sidebar-link">粘性定位（sticky)</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="定位元素"><a href="#定位元素" class="header-anchor">#</a> 定位元素</h1> <h2 id="相对定位"><a href="#相对定位" class="header-anchor">#</a> 相对定位</h2> <ul><li>它的参照物为自身默认的位置, 始终占据空间，即初始位置所在的空间还存在，自身根据left,top,bottom ,right的值移动到相应的位置。相对不会破坏正常的文档流，</li></ul> <div data-config="" data-type="vanilla" data-code="%3Chtml%3E%0A%20%20%3Cdiv%20id%3D%22position-demo1%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22pos-1%22%20%3Erelative%E5%85%83%E7%B4%A0%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22pos-2%22%20%3E%E6%99%AE%E9%80%9A%E5%85%83%E7%B4%A0%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fhtml%3E%0A%3Cstyle%3E%0A%23position-demo1%20%7B%0A%20%20background%3A%20lightblue%3B%0A%20%20width%3A%20480px%3B%0A%20%20margin%3A%2020px%20auto%3B%0A%20%20color%3A%20red%3B%0A%7D%0A%23position-demo1%20.pos-1%20%7B%0A%20%20position%3A%20relative%3B%0A%20%20left%3A%20100px%3B%0A%20%20top%3A%20100px%3B%0A%20%20width%3A%20100px%3B%0A%20%20height%3A%20100px%3B%0A%20%20background%3A%20lightgreen%3B%0A%7D%0A%23position-demo1%20.pos-2%20%7B%0A%20%20position%3A%20reletive%3B%0A%20%20width%3A%20150px%3B%0A%20%20%20height%3A%20100px%3B%0A%20%20background%3A%20lightcoral%3B%0A%7D%0A%3C%2Fstyle%3E%0A%60%20%60%20%60%0A" class="vuepress-plugin-demo-block__wrapper" style="display:none;"><div class="vuepress-plugin-demo-block__display"><div class="vuepress-plugin-demo-block__app"></div></div> <div class="vuepress-plugin-demo-block__code"><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>position-demo1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>pos-1<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>relative元素<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>pos-2<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>普通元素<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">#position-demo1</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 480px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 20px auto<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#position-demo1 .pos-1</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> lightgreen<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#position-demo1 .pos-2</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> reletive<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+   <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> lightcoral<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+` ` `
+</code></pre></div></div> <div class="vuepress-plugin-demo-block__footer"></div></div> <h2 id="绝对定位"><a href="#绝对定位" class="header-anchor">#</a> 绝对定位</h2> <ul><li>绝对定位的元素，定位参照的是已经设置了定位(position为relative, absolute, fixed)的层级离得最近的父元素, 会破坏标准文档流，表现为脱离标准文档流, 不占据空间，就是不在原来的位置上，也不占据空间, 就像游离在文档外</li></ul> <div data-config="" data-type="vanilla" data-code="%3Chtml%3E%0A%20%20%3Cdiv%20id%3D%22position-demo2%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22pos-1%22%20%3Eabsolute%E5%85%83%E7%B4%A0%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22pos-2%22%20%3E%E6%99%AE%E9%80%9A%E5%85%83%E7%B4%A0%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fhtml%3E%0A%3Cstyle%3E%0A%23position-demo2%20%7B%0A%20%20background%3A%20lightblue%3B%0A%20%20width%3A%20480px%3B%0A%20%20margin%3A%2020px%20auto%3B%0A%20%20color%3A%20red%3B%0A%7D%0A%23position-demo2%20.pos-1%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%20100px%3B%0A%20%20top%3A%20100px%3B%0A%20%20width%3A%20100px%3B%0A%20%20height%3A%20100px%3B%0A%20%20background%3A%20lightgreen%3B%0A%7D%0A%23position-demo2%20.pos-2%20%7B%0A%20%20position%3A%20reletive%3B%0A%20%20width%3A%20120px%3B%0A%20%20%20height%3A%20100px%3B%0A%20%20background%3A%20lightcoral%3B%0A%7D%0A%3C%2Fstyle%3E%0A%60%20%60%20%60%0A" class="vuepress-plugin-demo-block__wrapper" style="display:none;"><div class="vuepress-plugin-demo-block__display"><div class="vuepress-plugin-demo-block__app"></div></div> <div class="vuepress-plugin-demo-block__code"><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>position-demo2<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>pos-1<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>absolute元素<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>pos-2<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>普通元素<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">#position-demo2</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 480px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 20px auto<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#position-demo2 .pos-1</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> lightgreen<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#position-demo2 .pos-2</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> reletive<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 120px<span class="token punctuation">;</span>
+   <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> lightcoral<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+` ` `
+</code></pre></div></div> <div class="vuepress-plugin-demo-block__footer"></div></div> <h2 id="固定定位"><a href="#固定定位" class="header-anchor">#</a> 固定定位</h2> <p>以整个浏览器窗口为参照物，和绝对定位类似脱离文本流并且不占据空间</p> <h2 id="粘性定位（sticky"><a href="#粘性定位（sticky" class="header-anchor">#</a> 粘性定位（sticky)</h2></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/blueprint1453/blog/edit/master/docs/css/position.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">7/20/2020, 11:45:41 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.cddfd884.js" defer></script><script src="/blog/assets/js/2.80c34ca0.js" defer></script><script src="/blog/assets/js/9.fa4e56d5.js" defer></script>
+  </body>
+</html>
