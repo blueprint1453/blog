@@ -44,14 +44,21 @@ module.exports = {
     sidebar: {
       collapsable: true,
       '/javascript/': ['', 'js-basics', 'api-polyfill', 'promise'],
-      '/html/': ['', 'basis', 'http-status', 'performance', 'dom-event'],
-      '/css/': [''],
+      '/html/': ['', 'basis', 'http-status', 'performance', 'dom-event', 'timer', 'event-loop'],
+      '/css/': ['', 'css-selector', 'css-theory', 'position'],
       '/regexp/': [''],
       '/js-lib/': ['vue', 'react']
     }
   },
+  head: [
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js' }],
+  ],
   plugins: [
       '@vuepress/back-to-top',
+      'demo-block',
       '@vuepress-reco/extract-code',
       '@vuepress/register-components',
         {

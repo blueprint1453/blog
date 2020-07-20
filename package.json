@@ -11,7 +11,9 @@
     "watch": "node ./watch/index.js"
   },
   "dependencies": {
-    "shelljs": "^0.8.4"
+    "markdown-it-container": "^3.0.0",
+    "shelljs": "^0.8.4",
+    "vuepress-plugin-demo-block": "^0.7.2"
   },
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-extract-code": "^1.0.4",
