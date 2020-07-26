@@ -11,7 +11,12 @@ const headNav = [
       { text: 'html和浏览器', link: '/html/' },
       { text: 'css笔记', link: '/css/' },
       { text: '正则', link: '/regexp/' },
-      { text: 'js框架和库', link: '/js-lib/' },
+    ]
+  },
+  { text: 'js框架和库', 
+    items: [
+      { text: 'vue专题', link: '/vue/'},
+      { text: 'react专题', link: '/react/'},
     ]
   },
   { text: "算法", link: "/algorithm/" },
@@ -47,7 +52,8 @@ module.exports = {
       '/html/': ['', 'basis', 'http-status', 'performance', 'dom-event'],
       '/css/': [''],
       '/regexp/': [''],
-      '/js-lib/': ['vue', 'react']
+      '/js-lib/': ['vue', 'react'],
+      '/vue/': ['', 'reactive-1', 'reactive-2', 'reactive-3', 'nextTick']
     }
   },
   plugins: [
