@@ -23,7 +23,7 @@ const headNav = [
   { text: "nodejs", link: "/nodejs/" },
   { text: "数据库", link: "/database/" },
   { text: "面试问题", link: "/interview/" },
-  { text: "GitHub", link: "https://github.com/blueprint1453/blog" },
+  // { text: "GitHub", link: "https://github.com/blueprint1453/blog" },
 ];
 
 module.exports = {
