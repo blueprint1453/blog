@@ -1,6 +1,7 @@
 # 实现一个简单vue响应式系统(一)
 
-## 访问代理
+## 访问代理   
+   <br />
    为什么组件选项中数据是定义再data中，并且返回的是一个对象，但是我们使用时却可以跳过直接访问，本来是this.data.a却只用写成this.a的形式？原来是vue中为了使用方便做了一层访问代理，其原理其实也非常简单, Object.defineProperty这个api可以轻松做到
    
    ```js
@@ -23,14 +24,19 @@
 
 
 ##  简单梳理响应式原理
+<br />
 vue的响应式实现中有三个重要的类Observer, Dep, Watcher, 这三者是怎么实现数据响应式更新的呢，先忽略其他无关步骤和环节，我们只考虑初始化，渲染， 更新三个主要阶段，看看vue是怎么实现响应式的
-- 初始化Observer类利用Object.definePropert对data中的属性进行重写，每一个属性被重写时都创建了对应的Dep实例, 在getter中利用Dep实例收集当前的watcher,在setter中通知收集的watcher进行更新的操作
-- 渲染 创建一个渲染watcher去执行渲染操作,除了渲染watcher还会有computed watcher, user watcher,对应的就是我们computed和watch选项中为每个属性创建的watcher,这里暂时忽略，只考虑渲染watcher。这个过程必然要涉及到数据的读取，也就会触发上述的getter，依赖收集就是在这个时候完成的，所有的数据读取完后，每一个数据（属性）通过它的Dep也就和当前的渲染watcher建立了联系
-- 更新 当数据被更改时，setter触发，Dep实例通知渲染watcher进行更新。
+
+- **初始化**  Observer类利用Object.definePropert对data中的属性进行重写，每一个属性被重写时都创建了对应的Dep实例, 在getter中利用Dep实例收集当前的watcher,在setter中通知收集的watcher进行更新的操作
+
+- **渲染** 创建一个渲染watcher去执行渲染操作,除了渲染watcher还会有computed watcher, user watcher,对应的就是我们computed和watch选项中为每个属性创建的watcher,这里暂时忽略，只考虑渲染watcher。这个过程必然要涉及到数据的读取，也就会触发上述的getter，依赖收集就是在这个时候完成的，所有的数据读取完后，每一个数据（属性）通过它的Dep也就和当前的渲染watcher建立了联系
+
+- **更新** 当数据被更改时，setter触发，Dep实例通知渲染watcher进行更新。
 
 ![An image](../.vuepress/public/images/001.png)
 
-可以得到结论，当不考虑computed watcher, user watcher时，一个组件这是只有一个watcher，每个属性对应一个Dep实例
+可以得到结论，当不考虑computed watcher, user watcher时，一个组件这时只有一个watcher，每个属性对应一个Dep实例, 所有的Dep实例都保存了这个watcher
+属性重新赋值，Dep实例就会通知watcher
 
 ## 极简版的Vue构造函数
 ```js
@@ -63,6 +69,7 @@ function initState(vm) {
 }
 /**
  * 使用Observe对对象进行属性重写
+ * 每个被Observe处理过对象都会有一个—__ob__标识，指向对应的Observe实例
 */
 function observe(data) {
   if (typeof data === 'object' && data !== null) {
@@ -112,11 +119,16 @@ function defineReactive(data, key) {
 
 ```
 ## Dep和Watcher类的代码
+<br />
+
 ```js
 // 初始化Dep和Watcher实例的id
 let wid = 0
 let did = 0 
 
+/**
+ * 订阅器
+*/
 function Dep() {
   this.subs = []  // 存储watcher
   this.id = did++
@@ -137,11 +149,14 @@ Dep.prototype = {
   }
 }
 
-function Watcher(vm, fn, cb, options) {
+ /**
+  * Watcher类
+  * @param {Vue} vm vue实例
+  * @param {Function} fn 渲染函数或求值方法
+  */
+function Watcher(vm, fn) {
   this.vm = vm
   this.fn = fn
-  this.cb = cb
-  this.options = options || {}
   this.id = wid++
   this.deps = []
   this.depIds = new Set()
@@ -168,6 +183,7 @@ Watcher.prototype = {
 }
 ```
 ## 完整的示例代码
+<br />
 
 ```html
 <!DOCTYPE html>
@@ -214,6 +230,7 @@ Watcher.prototype = {
 
 
 ```js
+// ./vue.js
 
 let wid = 0
 let did = 0 
@@ -238,11 +255,9 @@ Dep.prototype = {
   }
 }
 
-function Watcher(vm, fn, cb, options) {
+function Watcher(vm, fn) {
   this.vm = vm
   this.fn = fn
-  this.cb = cb
-  this.options = options || {}
   this.id = wid++
   this.deps = []
   this.depIds = new Set()
@@ -339,7 +354,7 @@ Vue.prototype = {
   },
   $mount(){
     let vm = this
-    new Watcher(vm, vm.options.render, function() {})
+    new Watcher(vm, vm.options.render)
   }
 }
 

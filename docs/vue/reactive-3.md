@@ -60,7 +60,8 @@
 ```js
 
 let wid = 0
-let did = 0 
+let did = 0
+
 const watchTypeMap = {
   render: 'render',
   user: 'user',
@@ -86,7 +87,13 @@ Dep.prototype = {
     });
   }
 }
-
+ /**
+  * 
+  * @param {Vue} vm vue实例
+  * @param {Function} fn 渲染函数或求值方法
+  * @param {Function} cb 回调方法 这里其实用不上
+  * @param {Object} options 选项
+  */
 function Watcher(vm, fn, cb, options) {
   options = this.options = options || {}
   if (options.lazy) {
