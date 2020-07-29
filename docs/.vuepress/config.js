@@ -33,7 +33,7 @@ module.exports = {
   description: '专注于前端技术栈',
   themeConfig: {
     nav: headNav,
-    sidebarDepth: 2,
+    sidebarDepth: 3,
     nextLinks: false,
     prevLinks: false,
     smoothScroll: true,

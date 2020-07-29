@@ -1,7 +1,7 @@
-# 实现一个简单vue响应式系统(二)
+## 实现一个简单vue响应式系统(二)
 <p>在上一篇文章中，我们只考虑了data中属性，并成功实现了一个极简的响应式的系统，这篇我们考虑引入computed属性，让实现computed属性也实现类似的响应式功能</p>
 
-## Vue类的代码   
+### Vue类的代码   
 <br />
 
 ```js
@@ -44,9 +44,10 @@ function observe(data) {
 ```
 <p>上面的Vue类中的代码中，主要是增加了computed选项的初始化部分，其他部分跟之前一样</p>
 
-## computed的初始化代码
+### computed的初始化代码
 <br />
- computed的一个使用场景举例，看如下代码， 我们要获取fullName，通过一个简单的表达式拼接字符串得到。这里fullName依赖了this.firstName和this.lastName两个属性值，那fullName要如何实现类似的响应式机制呢，我们可以简单推导一下。对this.fullName的访问，要触发表达式 this.firstName + ' ' + this.lastName 的计算， 紧接着就会分别触发firstName和lastName两个属性的getter，如果我们创建一个跟fullName的watcher,  这个时候firstName和lastName对应的Dep实例这个时候去收集fullName对应的watcher，这样firstName和lastName任意一个修改，都会通知fullName对应的watcher，watcher可以立即重新计算表达式this.firstName + ' ' + this.lastName，当然也可以选择暂不计算，只标识一个状态，让下一次访问时再去重新求值。
+<p> computed的一个使用场景举例，看如下代码， 我们要获取fullName，通过一个简单的表达式拼接字符串得到。这里fullName依赖了this.firstName和this.lastName两个属性值，那fullName要如何实现类似的响应式机制呢，我们可以简单推导一下。对this.fullName的访问，要触发表达式 this.firstName + ' ' + this.lastName 的计算， 紧接着就会分别触发firstName和lastName两个属性的getter，如果我们创建一个跟fullName的watcher,  这个时候firstName和lastName对应的Dep实例这个时候去收集fullName对应的watcher，这样firstName和lastName任意一个修改，都会通知fullName对应的watcher，watcher可以立即重新计算表达式this.firstName + ' ' + this.lastName，当然也可以选择暂不计算，只标识一个状态，让下一次访问时再去重新求值。
+</p>
 
  ```js
   computed: {
@@ -55,8 +56,8 @@ function observe(data) {
     }
   },
  ```
+<p>按照上面的思路，下面是computed的初始化代码，初始化我们就为computed的每个属性建立对应的watcher，让每个属性的计算代码保存在一个watcher实例中，同时跟data中的属性类似，还要使用defineProperty定义一下每个computed属性的访问器，这里只改getter函数，在getter中去调用当前的computed属性对应的watcher去运行相应的计算代码，setter因为会使用到场景极少，这里不考虑进去。</p>
 
-按照上面的思路，下面是computed的初始化代码，初始化我们就为computed的每个属性建立对应的watcher，让每个属性的计算代码保存在一个watcher实例中，同时跟data中的属性类似，还要使用defineProperty定义一下每个computed属性的访问器，这里只改getter函数，在getter中去调用当前的computed属性对应的watcher去运行相应的计算代码，setter因为会使用到场景极少，这里不考虑进去。
 
 ```js
 function initComputed(vm) {
@@ -97,7 +98,7 @@ function defineComputed(vm, key) {
 }
 ```
 
-## Watcher代码
+### Watcher代码
 ```js
 function Watcher(vm, fn, options) {
   this.options = options = options || {}
@@ -162,7 +163,7 @@ Watcher.prototype = {
 }
 ```
 
-Dep类以及data响应式的代码不用修改，这里就不单独在拎出来了。下面直接放一个完整的实例代码
+**Dep类以及data响应式的代码不用修改，这里就不单独在拎出来了。下面直接放一个完整的实例代码**
 
 ```html
 <!DOCTYPE html>
@@ -232,7 +233,12 @@ Dep.prototype = {
     this.subs.push(watcher)
   },
   notify() {
-    this.subs.forEach(watcher => {
+    /**
+     * 因为数据更新会触发重新渲染，我们要在render watcher的重新渲染前先让computed watcher和user watcher先进行更新的操作
+     * 拷贝一份subs 对拷贝的队列中的watcher进行排序，computed watcher和user watcher先创建，所以id值更小，render watcher的id最大
+    */
+    let copy = this.subs.slice().sort((a, b) => a.id - b.id)
+    copy.forEach(watcher => {
       watcher.update()
     });
   }
@@ -264,14 +270,6 @@ Watcher.prototype = {
     Dep.target = null
     this.value = result
   },
-  renderTemplate() {
-    Promise.resolve().then(() => {
-      Dep.target = this
-      let result = this.fn.call(this.vm)
-      Dep.target = null
-      this.value = result
-    })
-  },
   addDep(dep) {
     if (!this.depIds.has(dep.id)) {
       this.depIds.add(dep.id)
@@ -284,7 +282,7 @@ Watcher.prototype = {
     if (this.lazy) {
       this.dirty = true
     } else {
-      this.renderTemplate()
+      this.getValue()
     }
   },
   compute() {
@@ -378,9 +376,9 @@ function initComputed(vm) {
   let i = keys.length
   while(i--) {
     let key = keys[i]
-    let computedItemFn = computed[key]
-    computedItemFn = typeof computedItemFn === 'function' ? computedItemFn : computedItemFn.get
-    watchers[key] = new Watcher(vm, computedItemFn, {lazy: true})
+    let computeFn = computed[key]
+    computeFn = typeof computeFn === 'function' ? computeFn : computeFn.get
+    watchers[key] = new Watcher(vm, computeFn, {lazy: true})
     if (!(key in vm)) {
       defineComputed(vm, key)
     }

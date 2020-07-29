@@ -1,6 +1,6 @@
-# 实现一个简单vue响应式系统(一)
+## 实现一个简单vue响应式系统(一)
 
-## 访问代理   
+### 访问代理   
    <br />
    <p>为什么组件选项中数据是定义再data中，并且返回的是一个对象，但是我们使用时却可以跳过直接访问，本来是this.data.a却只用写成this.a的形式？原来是vue中为了使用方便做了一层访问代理，其原理其实也非常简单, Object.defineProperty这个api可以轻松做到</p>
    
@@ -23,7 +23,7 @@
    ```
 
 
-##  简单梳理响应式原理
+###  简单梳理响应式原理
 <br />
 <p>vue的响应式实现中有三个重要的类Observer, Dep, Watcher, 这三者是怎么实现数据响应式更新的呢，先忽略其他无关步骤和环节，我们只考虑初始化，渲染， 更新三个主要阶段，看看vue是怎么实现响应式的</p>
 
@@ -38,7 +38,7 @@
 <p>可以得到结论，当不考虑computed watcher, user watcher时，一个组件这时只有一个watcher，每个属性对应一个Dep实例, 所有的Dep实例都保存了这个watcher, 属性重新赋值，Dep实例就会通知watcher</p>
 
 
-## 极简版的Vue部分代码
+### 极简版的Vue部分代码
 ```js
 function Vue(options) {
   this.init(options)
@@ -78,7 +78,7 @@ function observe(data) {
 }
 
 ```
-## Observe类的代码
+### Observe类的代码
 ```js
 function Observe(data) {
   let keys = Object.keys(data)
@@ -118,7 +118,7 @@ function defineReactive(data, key) {
 }
 
 ```
-## Dep和Watcher类的代码
+### Dep和Watcher类的代码
 <br />
 
 ```js
@@ -182,7 +182,7 @@ Watcher.prototype = {
   }
 }
 ```
-## 完整的示例代码
+### 完整的示例代码
 <br />
 
 ```html
