@@ -82,12 +82,12 @@
 
 ```css
  .test {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 20px;
-        width: 50px;
-        height: 50px;
-        background: lightgreen;
-      }
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background: lightgreen;
+  }
 ```
 上面这样一个元素，如果插在内容较长有滚动的页面中，当向下滚动到粘性定位元素距离body顶部值为20px时，粘性定位元素表现得跟fixed元素一样，固定在top：20px处。
