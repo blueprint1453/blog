@@ -19,12 +19,8 @@ function initWatch(vm) {
     let handler
     if (typeof options === 'function') {
       handler = options
-      handler.deep = false
-      handler.immediate = false
     } else if (typeof options === 'object' && options !== null) {
       handler= options.handler
-      handler.deep = !!options.deep || false
-      handler.immediate = !!options.immediate || false
     }
     let watcher = wachers[key] = new Watcher(vm, key, handler, {user: true})
   }
@@ -391,12 +387,8 @@ function initWatch(vm) {
     let handler
     if (typeof options === 'function') {
       handler = options
-      handler.deep = false
-      handler.immediate = false
     } else if (typeof options === 'object' && options !== null) {
       handler= options.handler
-      handler.deep = !!options.deep || false
-      handler.immediate = !!options.immediate || false
     }
     let watcher = wachers[key] = new Watcher(vm, key, handler, {user: true})
   }

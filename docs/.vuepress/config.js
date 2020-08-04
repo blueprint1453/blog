@@ -53,7 +53,8 @@ module.exports = {
       '/css/': ['', 'css-selector', 'css-theory', 'position'],
       '/regexp/': [''],
       '/js-lib/': ['vue', 'react'],
-      '/vue/': ['', 'reactive-1', 'reactive-2', 'reactive-3', 'nextTick']
+      '/vue/': ['', 'reactive-1', 'reactive-2', 'reactive-3', 'nextTick'],
+      '/algorithm/': ['', 'query', 'sort']
     }
   },
   head: [

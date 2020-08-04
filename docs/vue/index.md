@@ -8,4 +8,4 @@
 
 - [实现一个简单vue响应式系统(三)](./reactive-3.html)
 
-- [vue的更新机制以及nextTick](./nextTick.html)
+- [实现一个简单vue响应式系统(四)](./nextTick.html)
