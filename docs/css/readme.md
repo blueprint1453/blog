@@ -3,14 +3,8 @@
 
 本栏的主要内容如下：
 
-- [js基础知识点](./js-basics.html)
+- [css选择器汇总](./css-selector.html)
 
-- [js及浏览器相关的api的实现](./api-polyfill.html)
+- [css基础理论](./css-theory.html)
 
-- [promise 的实现](./promise.html)
-
-- [浏览器相关](./browser.html)
-
-- [css相关](./css.html)
-
-- [js框架和库](./js-lib.html)
+- [定位元素](./position.html)

@@ -3,14 +3,14 @@
 
 本栏的主要内容如下：
 
-- [js基础知识点](./js-basics.html)
+- [浏览器相关基础知识](./basis.html)
 
-- [js及浏览器相关的api的实现](./api-polyfill.html)
+- [http请求返回的状态码](./http-status.html)
 
-- [promise 的实现](./promise.html)
+- [性能优化](./performance.html)
 
-- [浏览器相关](./browser.html)
+- [DOM 事件](./dom-event.html)
 
-- [css相关](./css.html)
+- [浏览器的定时器](./timer.html)
 
-- [js框架和库](./js-lib.html)
+- [js的执行机制](./event-loophtml)
