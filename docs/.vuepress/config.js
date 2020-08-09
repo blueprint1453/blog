@@ -17,11 +17,13 @@ const headNav = [
     items: [
       { text: 'vue专题', link: '/vue/'},
       { text: 'react专题', link: '/react/'},
+      { text: 'redux', link: '/redux/'},
+      { text: 'axios', link: '/axios/'},
     ]
   },
   { text: "算法", link: "/algorithm/" },
-  { text: "nodejs", link: "/nodejs/" },
-  { text: "数据库", link: "/database/" },
+  // { text: "nodejs", link: "/nodejs/" },
+  // { text: "数据库", link: "/database/" },
   { text: "面试问题", link: "/interview/" },
   // { text: "GitHub", link: "https://github.com/blueprint1453/blog" },
 ];
@@ -44,15 +46,15 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
-    lastUpdated: '上次更新',
+    // lastUpdated: '上次更新',
      
     sidebar: {
       collapsable: true,
       '/javascript/': ['', 'js-basics', 'api-polyfill', 'promise'],
       '/html/': ['', 'basis', 'http-status', 'performance', 'dom-event', 'timer', 'event-loop'],
       '/css/': ['', 'css-selector', 'css-theory', 'position'],
-      '/regexp/': [''],
-      '/js-lib/': ['vue', 'react'],
+      '/regexp/': ['', 'example-1'],
+      '/js-lib/': ['vue', 'react', 'axios', 'redux'],
       '/vue/': ['', 'reactive-1', 'reactive-2', 'reactive-3', 'nextTick'],
       '/algorithm/': ['', 'query', 'sort']
     }
