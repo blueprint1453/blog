@@ -70,6 +70,7 @@ componentWillUnmount
 [React v16.3之后的组件生命周期函数](https://zhuanlan.zhihu.com/p/38030418)
 [React Fiber是什么](https://zhuanlan.zhihu.com/p/26027085)
 
+
 ## -----------------------------------------------------------------------
 
 ## setState方法
@@ -217,6 +218,9 @@ context可以穿透React.memo和shouldupdate的比对，一旦context的值发�
 ## React 中的元素和组件有什么不同
 - 元素是不可变的普通对象，用来描述你想要渲染的组件或 DOM 节点。  元素一旦被创建，你就无法更改它的子元素或者属性。一个元素就像电影的单帧：它代表了某个特定时刻的 UI。  
 - 组件可以是类或者函数，他将 props 作为输入然后返回一个元素的树形结构作为输出。
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 7b6e02c2db22d50e97eefeed158da10b57c0b184
