@@ -47,7 +47,28 @@ componentWillUnmount
 1. static getDrivedStateFromError
 2. componentDidCatch
 
+- 新版react生命周期已经不推荐一些生命周期继续使用，原因fiber机制的出现后，componentWillUpdate和componentWillMount可能被调用多次
+- fiber机制
+1. react在开启更新流程后整个过程是同步的，无法被中断，如果组件树非常庞大，那么会导致整个过程耗时较长，无法及时响应用户的输入。
+2. 破解同步更新耗时较长的方式就是把任务进行分片
+3. 通过把一个耗死较长的更新任务分片，每执行完一段更新过程，就会把控制权交给负责任务调度的模块，看看有没有优先级更高的任务要做，没有就继续执行，有就去做紧急任务。
+4. 维护每一个分片任务的数据结构，就叫fiber
+5. React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。
+6. 在第一阶段Reconciliation Phase，React Fiber会找出需要更新哪些DOM，这个阶段是可以被打断的；
+- componentWillMount
+- componentWillReceiveProps
+- shouldComponentUpdate
+- componentWillUpdate
 
+7. 第二阶段Commit Phase，那就一鼓作气把DOM更新完，绝不会被打断。
+- componentDidMount
+- componentDidUpdate
+- componentWillUnmount
+
+8. 在现有的React中，每个生命周期函数在一个加载或者更新过程中绝对只会被调用一次；在React Fiber中，不再是这样了，第一阶段中的生命周期函数在一次加载和更新过程中可能会被多次调用！
+
+[React v16.3之后的组件生命周期函数](https://zhuanlan.zhihu.com/p/38030418)
+[React Fiber是什么](https://zhuanlan.zhihu.com/p/26027085)
 
 ## -----------------------------------------------------------------------
 
@@ -196,3 +217,6 @@ context可以穿透React.memo和shouldupdate的比对，一旦context的值发�
 ## React 中的元素和组件有什么不同
 - 元素是不可变的普通对象，用来描述你想要渲染的组件或 DOM 节点。  元素一旦被创建，你就无法更改它的子元素或者属性。一个元素就像电影的单帧：它代表了某个特定时刻的 UI。  
 - 组件可以是类或者函数，他将 props 作为输入然后返回一个元素的树形结构作为输出。
+
+
+
