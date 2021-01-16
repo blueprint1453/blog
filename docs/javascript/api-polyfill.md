@@ -224,6 +224,7 @@ function debounce(fn, delay, immediate) {
 
     timer = setTimeout(function() {
       fn(...args)
+      clearTimeout(timer)
     }, delay || 200)
   }
 }
@@ -276,8 +277,8 @@ content.onmousemove = throttle(count, 400)
       let onceFn = function() {
         onceFn.apply(that, arguments)
         that.off(name, onceFn)
-      }
-      this.on(name, handler.bind(this))
+      }     
+      this.on(name, onceFn)
     }
     emit(name, ...params) {
       let handlers = this.eventMap[name] || []
