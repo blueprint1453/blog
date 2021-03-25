@@ -28,6 +28,8 @@
       if-modified-since字段，服务器用本地的last-modified和if-modified-since的值比较
    2. Etag是资源的哈希标识，当资源更新时，Etag会改变。服务器会判断Etag是否发生变化，如果变化则返回    新资源，否则返回304
 
+   [浏览器缓存知识小结及应用](https://www.cnblogs.com/lyzg/p/5125934.html)
+
 ### TCP连接
 1. 第一次握手： 建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；
 2. 第二次握手： 服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；

@@ -10,11 +10,25 @@
 
 
 ## webpack 为何可以同时支持commonjs和es6 module的写法
-
+- 打包后的代码是一个自执行函数
+- 自执行函数内部定义了一个缓存所有的模块的对象
+- 定义了__webpack_require__ 加载模块方法，该方法会执行模块内容，返回模块的结果
+- 定义了一系列的辅助函数，在这些辅助函数中包括标记是否为es6模块的函数
+- 自执行函数在最后会调用__webpack_require__加载入口模块
+- commonjs模块
 
 
 ## webpack的按需加载的实现原理（import（）调用）
 
+- 定义了全局的installChunks缓存动态导入的模块
+
+- 定义了加载动态模块的方法和以及加载后的立即执行的函数
+
+- 将import函数转化为__webpack_require__.e(moduleId).then(__webpack_require__.bind(null, moduleId))
+
+- __webpack_require__是加载模块的方法，__webpack_require__.e中为动态加载模块绑定了一个promise数组，并添加script标签去加载动态模块的代码，__webpack_require__.e返回一个promise
+
+- 动态模块的代码下载好后会执行一个方法，这个方法主要是resolve该模块对应的promise，这样前面提到的__webpack_require__.e(moduleId).then(__webpack_require__.bind(null, moduleId))，里面的then回调就会执行，then回调里面加载的才是真正的模块代码，返回模块内容后再下一个then回调就可以接受这个结果。
 
 ## webpack构建流程
 1. 合并配置参数，用参数初始化complier对象，加载配置中的插件，执行run方法开始编译
@@ -65,3 +79,35 @@ webpack构建的前端项目中js模块会经过babel及其相关插件的处理
 - postcss-preset-env会将最新的CSS语法转换为目标环境的浏览器能够理解的CSS语法
 - postcss-preset-env使用browserslist来配置目标环境
 - postcss-preset-env集成了autoprefixer
+
+
+
+### wwebpack4中hash、chunkhash和contenthash三者的区别
+
+1. hash是跟整个项目的构建相关，构建生成的文件hash值都是一样的，所以hash计算是跟整个项目的构建相关，同一次构建过程中生成的hash都是一样的，只要项目里有文件更改，整个项目构建的hash值都会更改。
+
+**如果出口是hash，那么一旦针对项目中任何一个文件的修改，都会构建整个项目，重新获取hash值，缓存的目的将失效。**
+
+2. chunkhash根据不同的入口文件(Entry)进行依赖文件解析、构建对应的chunk，生成对应的哈希值。在生产环境里把一些公共库和程序入口文件区分开，单独打包构建，接着我们采用chunkhash的方式生成哈希值，那么只要我们不改动公共库的代码，就可以保证其哈希值不会受影响。并且webpack4中支持了异步import功能，固，chunkhash也作用于此
+
+**但是这样又有一个问题，因为我们是将样式作为模块import到JavaScript文件中的，所以它们的chunkhash是一致的**
+
+3. 但是这样又有一个问题，因为我们是将样式作为模块import到JavaScript文件中的，所以它们的chunkhash是一致的
+
+
+
+
+### tree-shaking
+
+1. Webpack 只有在压缩代码的时候会 tree-shaking, 通常就指是生产环境,在开发环境会对未被使用的代码进行注释标记
+2. 代码的 module 引入必须是 import 的引入方式，也就是要是用es6 module方式书写代码
+
+3. 在 package.json 文件中将 sideEffects 设为 false
+
+4. 将css相关 loader中 sideEffects 设为 true
+
+5. 让@babel/preset-env 不要将 ES6 模块转化为其他模块规范 modules值设置为 false
+
+6. 使用TerserPlugin，js代码压缩插件(webpack 自带)
+
+参考[Webpack的Tree Shaking实战](https://blog.csdn.net/weixin_30428981/article/details/112160362)
